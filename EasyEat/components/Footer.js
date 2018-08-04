@@ -24,8 +24,8 @@ export default class Footer extends React.Component {
 
 const styles = StyleSheet.create({
     footerView: {
-      marginTop: 20,
-      flex: 0.5,
+      position: 'relative',
+      flex: .2,
       justifyContent: 'center',
       alignItems: 'center',
     }

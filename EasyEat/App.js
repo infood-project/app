@@ -1,25 +1,32 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
-import Panel from './components/Panel';
-import Login from './components/Login'
-import Footer from './components/Footer'
+import Firebase from './cloud/Firebase'
+import Auth from "./cloud/Authorization";
+
+import LoginPage from './containers/LoginPage';
+import RestaurantsPage from './containers/RestaurantsPage';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { user: null }
+    Firebase.init();
+  }
+
+  componentDidMount() {
+    this.removeListener = Auth.getUserStatus((user) => {
+      this.setState({ user });
+    });
+  }
+
+  componentWillUnmount() {
+    this.removeListener();
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Panel />
-        <Login />
-        <Footer />
-      </View>
-    );
+    return !this.state.user ? <LoginPage /> : (
+      <RestaurantsPage />
+    )
+    
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});

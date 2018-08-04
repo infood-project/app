@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
-  }
+		"name": "Sample App",
+		"sdkVersion": "27.0.0",
+		"description": "Förbeställ mat så du slipper vänta. EasyEat hjälper dig.",
+		"version": "1.0.1",
+		"orientation": "portrait",
+		"ios": {
+			"bundleIdentifier": "com.easyeat.easyeat"
+		},
+		"android": {
+			"package": "com.easyeat.easyeat"
+		}
+	}
 }

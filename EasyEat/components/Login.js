@@ -1,11 +1,23 @@
 import React from 'react';
-import { SocialIcon, Input, Button, Divider } from 'react-native-elements';
+import { Input, Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Dimensions, View, Image, StyleSheet } from 'react-native';
+
+import Authorization from '../cloud/Authorization';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export default class Login extends React.Component {
+  constructor(props) {
+      super(props);
+      this.onSocialLogin = this.onSocialLogin.bind(this);
+  }
+
+  onSocialLogin() {
+    Authorization.signIn();
+  }
+
   render() {
     return (
         <View style={styles.container}>
@@ -30,6 +42,7 @@ export default class Login extends React.Component {
                     inputStyle={{marginLeft: 10, color: 'white'}}
                     leftIcon={{ type: 'simple-line-icon', name: 'lock' }}
                 />
+
                 <Button
                     title="Logga in"
                     loading={false}
@@ -43,15 +56,22 @@ export default class Login extends React.Component {
                         start: [1, 0],
                         end: [0.2, 0],
                     }}
+                    onPress={this.onSocialLogin}
                 />
-            </View>
-
-            <View style={styles.socialIcon}>
-                <SocialIcon
+                <Button
                     title='Logga in med Facebook'
-                    button
-                    type='facebook'
-                    style={styles.socialBtn}
+                    titleStyle={{ fontSize: 14, fontWeight: "700" }}
+                    icon={
+                        <Icon
+                            name='facebook'
+                            color='#fff'
+                            size={15}
+                        />
+                      }
+                    activeOpacity={0.8}
+                    buttonStyle={styles.socialBtn}
+                    containerStyle={{ marginTop: 10 }}
+                    onPress={this.onSocialLogin}
                 />
             </View>
         </View>
@@ -64,13 +84,13 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     image: {
-        marginTop: SCREEN_HEIGHT - 700,
+        marginTop: SCREEN_HEIGHT - 600,
         justifyContent: 'center',
         alignItems: 'center',
     },
     logo: {
         width: SCREEN_WIDTH - 205, 
-        height: SCREEN_HEIGHT - 642
+        height: SCREEN_HEIGHT - 542
     },
     loginInput: {
         backgroundColor: 'white',
@@ -92,6 +112,10 @@ const styles = StyleSheet.create({
     },
     socialBtn: {
         width: 300,
+        height: 52,
+        borderColor: "transparent",
+        borderWidth: 0,
         borderRadius: 3,
+        backgroundColor: '#3b5998'
     }
   });
