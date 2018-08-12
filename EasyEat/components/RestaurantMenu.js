@@ -13,6 +13,19 @@ export default class RestaurantMenu extends React.Component {
         const { name, description } = this.props.restaurant;
 
         return (
+            <View>
+                <Card
+                    image={require(`../assets/images/main.jpg`)}
+                    overlayStyle={{ opacity: 0 }}
+                    containerStyle={{ width: Dimensions.get('window').width }}
+                >
+                    <Text style={styles.imageTitle}>{name.replace(/\w/, c => c.toUpperCase())}</Text>
+                    <Text style={styles.imageDescription}>
+                        <Text style={styles.imagePriceRange}>$ </Text>
+                        {description}
+                    </Text>
+                </Card>
+            </View>
         );
     }
 }
