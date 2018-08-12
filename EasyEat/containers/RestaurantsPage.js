@@ -1,24 +1,46 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { Constants } from 'expo';
 
-import Panel from '../components/Panel';
-import Login from '../components/Login'
-import Footer from '../components/Footer'
+import PanelTop from '../components/PanelTop';
+import RestaurantCard from '../components/RestaurantCard';
 
 export default class RestaurantsPage extends React.Component {
   render() {
+    const restaurants = [
+      {
+        name: 'slimfood',
+        description: '#sallad #grekiskt'
+      },
+      {
+        name: 'paprika',
+        description: '#juice #rawfood #grönsaker'
+      },
+      {
+        name: 'jensens bøfhus',
+        description: '#biff #pommes #frites'
+      },
+      {
+        name: 'apan',
+        description: '#asiatiskt #tofu'
+      }
+    ]
+
     return (
-      <View style={styles.container}>
-        <Panel />
-        <Login />
-      </View>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {restaurants.map((restaurant, i) => 
+          <RestaurantCard key={i} restaurant={restaurant} />
+        )}
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  scrollContainer: {
+    marginTop: -20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
   },
 });
