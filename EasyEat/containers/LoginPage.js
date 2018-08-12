@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Panel from '../components/Panel';
+import PanelTop from '../components/PanelTop';
 import Login from '../components/Login'
 import Footer from '../components/Footer'
 
@@ -9,7 +9,6 @@ export default class LoginPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Panel />
         <Login />
         <Footer />
       </View>

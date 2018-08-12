@@ -1,10 +1,13 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
 
 import Firebase from './cloud/Firebase'
 import Auth from "./cloud/Authorization";
 
 import LoginPage from './containers/LoginPage';
 import RestaurantsPage from './containers/RestaurantsPage';
+import PanelTop from './components/PanelTop';
+import PanelBottom from './components/PanelBottom';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,9 +27,22 @@ export default class App extends React.Component {
   }
 
   render() {
-    return !this.state.user ? <LoginPage /> : (
-      <RestaurantsPage />
+    return (
+      <View style={styles.container}>
+        <PanelTop />
+        {!this.state.user ? <LoginPage /> :
+        <RestaurantsPage />}
+
+        {this.state.user && 
+        <PanelBottom />
+        }
+      </View>
     )
-    
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
