@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo';
 const { width } = Dimensions.get('window');
 
 export default class PanelBottom extends React.Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       selectedIndex: 0
@@ -15,24 +15,24 @@ export default class PanelBottom extends React.Component {
     this.updateIndex = this.updateIndex.bind(this)
   }
 
-  updateIndex (selectedIndex) {
-    this.setState({selectedIndex})
+  updateIndex(selectedIndex) {
+    this.setState({ selectedIndex })
   }
 
   home = () => <Icon
-  name='home-outline'
-  size={22}
-  color={this.state.selectedIndex === 0 ? '#fff' : '#2189dc'}
+    name='home-outline'
+    size={22}
+    color={this.state.selectedIndex === 0 ? '#fff' : '#6f7b88'}
   />
   cart = () => <Icon
     name='cart-outline'
     size={22}
-    color={this.state.selectedIndex === 1 ? '#fff' : '#2189dc'}
+    color={this.state.selectedIndex === 1 ? '#fff' : '#6f7b88'}
   />
   profile = () => <Icon
     name='account-outline'
     size={22}
-    color={this.state.selectedIndex === 2 ? '#fff' : '#2189dc'}
+    color={this.state.selectedIndex === 2 ? '#fff' : '#6f7b88'}
   />
 
   render() {
@@ -45,14 +45,17 @@ export default class PanelBottom extends React.Component {
 
     return (
       <LinearGradient
-      colors={['#fff', '#e2e2e2']}
-      style={{ opacity: .9 }}>
-      <ButtonGroup
-        onPress={this.updateIndex}
-        selectedIndex={selectedIndex}
-        buttons={buttons}
-        containerStyle={styles.buttonGroup} />
-    </LinearGradient>
+        colors={['#fff', '#e2e2e2']}
+        style={{ opacity: .9 }}
+      >
+        <ButtonGroup
+          onPress={this.updateIndex}
+          selectedIndex={selectedIndex}
+          buttons={buttons}
+          containerStyle={styles.buttonGroup}
+          innerBorderStyle={{ color: 'transparent' }}
+        />
+      </LinearGradient>
     )
   }
 }
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
   buttonGroup: {
     backgroundColor: 'transparent',
     width: width,
-    height: 55,
+    height: 50,
     marginLeft: 0,
     marginRight: 0,
     marginBottom: 0,

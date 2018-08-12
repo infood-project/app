@@ -30,6 +30,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <PanelTop />
+
         {!this.state.user ? <LoginPage /> :
         <RestaurantsPage />}
 
