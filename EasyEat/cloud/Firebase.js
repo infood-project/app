@@ -1,5 +1,11 @@
 import firebase from 'firebase';
 
+/**
+ * Den här komponenten kopplar upp en till firebase
+ * Kanske skapa en ny firebase inför lansering
+ * Skapa en här: https://firebase.google.com/
+ * Här kan man också läsa mer: https://hackernoon.com/introduction-to-firebase-218a23186cd7
+ */
 class Firebase {
     constructor() {
         this.config = {

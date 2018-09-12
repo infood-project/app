@@ -8,16 +8,22 @@ import Authorization from '../cloud/Authorization';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
+/**
+ * Loggain-komponenten
+ */
 export default class Login extends React.Component {
   constructor(props) {
       super(props);
       this.onSocialLogin = this.onSocialLogin.bind(this);
   }
 
+  // Använder Firebase-klassen för att logga in
   onSocialLogin() {
     Authorization.signIn();
   }
 
+  // Renderar en vy där man kan logga in
+  // Kanske kan endast använda facebook-login först
   render() {
     return (
         <View style={styles.container}>

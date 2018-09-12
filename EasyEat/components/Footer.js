@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements'
 
+/**
+ * En footer som är en komponent som är på botten av sidan
+ */
 export default class Footer extends React.Component {
   render() {
     return (

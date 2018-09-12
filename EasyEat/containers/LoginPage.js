@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import PanelTop from '../components/PanelTop';
 import Login from '../components/Login'
 import Footer from '../components/Footer'
 
+/**
+ * Logga in-sidan
+ * Använder logga in-komponenten och en footer
+ */
 export default class LoginPage extends React.Component {
   render() {
     return (

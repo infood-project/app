@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Header, SearchBar, Overlay } from 'react-native-elements';
 
+/**
+ * Den översta panelen
+ */
 export default class PanelTop extends React.Component {
   constructor(props) {
     super(props);
@@ -13,24 +16,31 @@ export default class PanelTop extends React.Component {
     this.updateShowSearch = this.updateShowSearch.bind(this);
   }
 
+  // Visa eller dölj sök-modalen
   updateShowSearch() {
     this.setState({ showSearch: !this.state.showSearch })
   }
 
+  // Visa eller dölj info-modalen
   updateShowInfo() {
     this.setState({ showInfo: !this.state.showInfo })
   }
 
   render() {
+    // Alla komponenter får info från navigationsdatan i routes.js
+    // Där kan man få information om vilken sida man är på
+    // eller få funktioner för att ex. gå tillbaka
+    const { navigation } = this.props;
+
     return (
       <View>
         <Header
           leftComponent={{
-            icon: 'search',
+            icon: navigation ? 'arrow-back' : 'search',
             color: '#fff',
             opacity: .9,
             underlayColor: '#ffffff78',
-            onPress: () => this.updateShowSearch(),
+            onPress: navigation ? () => navigation.goBack() : () => this.updateShowSearch(),
           }}
           centerComponent={{
             text: 'EasyEat',
@@ -50,13 +60,13 @@ export default class PanelTop extends React.Component {
           />
         }
         <Overlay
-          isVisible={true}
+          isVisible={false}
           onBackdropPress={() => this.setState({ isVisible: false })}
           windowBackgroundColor="rgba(255, 255, 255, .5)"
           overlayBackgroundColor="red"
           style={{ zIndex: 10, position: 'absolute' }}
         >
-          <Text>Hello from Overlay!</Text>
+          <Text>Skriv info här</Text>
         </Overlay>
       </View>
     );
