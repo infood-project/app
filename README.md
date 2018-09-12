@@ -71,3 +71,6 @@ Version 1.0.0-beta5
 
 Här finns en grundläggande tutorial hur man kan göra:
 https://medium.com/mesan-digital/how-to-build-a-react-native-app-using-firebase-part-1-1210fa206714
+
+Vill ni ladda ner fler paket som erbjuder olika tjänster, så kan ni
+läsa på här: https://www.sitepoint.com/beginners-guide-node-package-manager/

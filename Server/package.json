@@ -1,0 +1,23 @@
+{
+  "name": "easyeat",
+  "version": "1.0.0",
+  "description": "easyeat server side configs",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infood-project/app.git"
+  },
+  "author": "Jesper Pedersen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infood-project/app/issues"
+  },
+  "homepage": "https://github.com/infood-project/app#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
